@@ -3,21 +3,19 @@ import numpy as np
 import cv2
 
 
-
 def load_model(model_path): 
     model = pickle.load(open(model_path, "rb"))
     return model
 
 
-def detect(img,model,scaler):
-    img_resized = cv2.resize(img, (40, 20))
-    img_gray = cv2.cvtColor(img_resized,cv2.COLOR_BGR2GRAY)
-    flattened_img = np.reshape(img_gray, (1,800))
+def detect(img, model, scaler, threshold=0.7):
+    img_resized = cv2.resize(img, (7, 4))
+    img_rgb = cv2.cvtColor(img_resized, cv2.COLOR_BGR2RGB)
+    flattened_img = np.reshape(img_rgb, (1, 84))
     flat_data = np.array(flattened_img)
     scaled_data = scaler.transform(flat_data)
-    y_output = model.predict(scaled_data)
-    print(y_output[0])
-    if y_output[0] == 1:
-        return True
-    return False
+    y_prob = model.predict_proba(scaled_data)
+    if y_prob[0][1] > threshold:
+        return True # pizza 
+    return False # no_pizza
 
