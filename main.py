@@ -9,7 +9,7 @@ import numpy as np
 from utils import load_model, detect
 
 # load model
-model_path = r"C:\Users\US593\OneDrive\Desktop\conveyor_belt_pizza_counter\classifier\random_forest_model.p"
+model_path = r"C:\Users\US593\OneDrive\Desktop\conveyor_belt_pizza_counter\classifier\naive_bayes_model.p"
 model = load_model(model_path)
 
 # load scaler (for normalization)
