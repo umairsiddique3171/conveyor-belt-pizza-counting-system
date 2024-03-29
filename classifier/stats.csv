@@ -1,3 +1,6 @@
 ,model,best_score,best_params
-0,naive_bayes,1.0,{'priors': None}
-1,random_forest,1.0,{'criterion': 'gini'}
+0,naive_bayes,0.9620253164556962,{'priors': None}
+1,random_forest,0.9860759493670885,{'criterion': 'gini'}
+2,logistic_regression,0.9746835443037976,{}
+3,xgboost,0.9848101265822784,{}
+4,svc,0.978481012658228,"{'C': 1, 'gamma': 'scale', 'kernel': 'linear'}"
